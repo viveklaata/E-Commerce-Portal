@@ -1,5 +1,4 @@
-# E-Commerce-Portal
-Online shopping Web Portal
+## Portal
 
 A Django app for listing various items for sale. It's like Craigslist, but much simpler.
 
