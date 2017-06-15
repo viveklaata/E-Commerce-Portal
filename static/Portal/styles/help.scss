@@ -1,0 +1,16 @@
+body.help {
+  p {
+    margin-bottom: 20px;
+  }
+
+  .cta--cancel {
+    display: block;
+    margin-top: 40px;
+  }
+
+  .crossouts {
+    span {
+      text-decoration: line-through;
+    }
+  }
+}

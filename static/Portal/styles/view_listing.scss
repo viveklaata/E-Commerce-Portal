@@ -1,0 +1,34 @@
+body.view_listing {
+  h2 {
+    text-align: center;
+    margin: 0 0 20px;
+  }
+
+  .listing__info {
+    margin-bottom: 20px;
+
+    .listing__description {
+      margin-bottom: 20px;
+
+      p {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .listing__images {
+    img {
+      display: block;
+      max-width: 100%;
+      margin: 0 auto 20px;
+    }
+  } 
+
+  .listing__meta {
+    padding: 10px;
+    color: white;
+    background-color: black;
+    font-size: 12px;
+    text-align: right;
+  }
+}

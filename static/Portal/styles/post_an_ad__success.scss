@@ -1,0 +1,28 @@
+body.post_an_ad__success {
+  .instructions {
+    margin-bottom: 20px;
+  }
+
+  .panel {
+    padding: 20px;
+    background-color: rgba(255,255,0,0.25);
+    margin-bottom: 20px;
+    border: 3px dashed rgba(200,200,0,0.5);
+    text-align: center;
+
+    h3 {
+      color: rgba(0,0,0,0.5);
+    }
+
+    .code {
+      font-size: 40px;
+    }
+  }
+
+  .form__cta--cancel {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
+  }
+}
