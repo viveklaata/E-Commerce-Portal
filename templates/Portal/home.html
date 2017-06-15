@@ -1,0 +1,61 @@
+{% extends "Portal/base.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block page_name %}home{% endblock %}
+
+{% block page_scripts %}
+  <script defer src="{% static 'Portal/scripts/home.js' %}"></script>
+{% endblock %}
+
+{% block main %}
+  <div class="subheader">
+    <a href="{% url 'Portal:post_an_ad' %}" class="cta--post_an_ad">Post an ad</a> &middot; <a href="{% url 'Portal:help' %}">Help</a>
+  </div>
+
+  <ul class="categories">
+    {% for category in categories %}
+      <li><span>{{ category }}</span>
+        
+        {% if category.subcategories.all %}
+          <ul class="subcategories">
+          {% for subcategory in category.subcategories.all %}
+            <li><span>{{ subcategory.name }}</span>
+
+            {% if subcategory.parts.all %}
+              <ul class="parts">
+                {% for part in subcategory.parts.all %}
+                  <li><span>{{ part }}</span>
+
+                    {% if part.listings.all %}
+                      <ul class="listings">
+                        {% for listing in part.listings.all %}
+
+                          {% if listing.status == 'A' %}
+                            <li>
+                              <a href="{% if listing.location == 'FT86Club' %}{{ listing.contact_info }}{% else %}{% url 'Portal:view_listing' listing.code %}{% endif %}" target="_blank">
+                                {{ listing.price }} {{ listing.get_condition_display }}{% if listing.location %} from {{ listing.location }}{% endif %}<br>
+                              </a>
+                              {% if listing.subtitle %}<span class="subtitle">{{ listing.subtitle }}</span>{% endif %}
+                            </li>
+                          {% endif %}
+
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+
+            </li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+
+      </li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}

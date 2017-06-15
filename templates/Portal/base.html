@@ -1,0 +1,19 @@
+{% load static %}
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Portal</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="{% static 'Portal/styles/base.css' %}">
+    <script defer src="{% static 'Portal/scripts/vendors/jquery.min.js' %}"></script>
+    <script defer src="{% static 'Portal/scripts/vendors/underscore.min.js' %}"></script>
+    <script defer src="{% static 'Portal/scripts/base.js' %}"></script>
+    {% block page_scripts %}{% endblock %}
+  </head>
+  <body class="{% block page_name %}{% endblock %}">
+    <h1><a href="{% url 'Portal:home' %}">Portal</a></h1>
+    {% block main %}{% endblock %}
+  </body>
+</html>

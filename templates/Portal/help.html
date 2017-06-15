@@ -1,0 +1,22 @@
+{% extends "Portal/base.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block page_name %}help{% endblock %}
+
+{% block page_scripts %}
+  <script defer src="{% static 'Portal/scripts/help.js' %}"></script>
+{% endblock %}
+
+{% block main %}
+  <div class="subheader">
+    <h3>Help</h3>
+  </div>
+
+  <div class="contents">
+    <h2>What is this website for?</h2>
+    <p>Blah, blah blah</p>
+
+    <a class="cta--cancel" href="{% url 'Portal:home' %}">Go back to the homepage</a>
+  </div>
+{% endblock %}

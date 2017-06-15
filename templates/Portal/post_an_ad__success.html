@@ -1,0 +1,30 @@
+{% extends "Portal/base.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block page_name %}post_an_ad__success{% endblock %}
+
+{% block page_scripts %}
+  <script defer src="{% static 'Portal/scripts/post_an_ad__success.js' %}"></script>
+{% endblock %}
+
+{% block main %}
+  <div class="subheader">
+    <h3>Post an ad</h3>
+  </div>
+
+  <div class="contents">
+    <h2>Your listing has been created!</h2>
+    <p class="instructions">However, it needs to be verified by the admin, which will take just a few minutes. Note that this listing will automatically expire after 14 days!</p>
+
+    <div class="panel">
+      <h3>Listing Code</h3>
+      <p class="code">{{ listing.code }}</p>
+
+      <h3>Link (Pending)</h3>
+      <p><a href="{% url 'Portal:view_listing' listing.code %}">http://website.com{% url 'Portal:view_listing' listing.code %}</a></p>
+    </div>
+
+    <a href="{% url 'Portal:home' %}" class="form__cta--cancel">Go back home</a>
+  </div>
+{% endblock %}

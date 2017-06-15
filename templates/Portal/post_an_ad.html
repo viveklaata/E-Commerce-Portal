@@ -1,0 +1,69 @@
+{% extends "Portal/base.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block page_name %}post_an_ad{% endblock %}
+
+{% block page_scripts %}
+  <script defer src="{% static 'Portal/scripts/post_an_ad.js' %}"></script>
+{% endblock %}
+
+{% block main %}
+  <div class="subheader">
+    <h3>Post an ad</h3>
+  </div>
+
+  <form class="contents" action="{% url 'Portal:post_an_ad' %}" method="POST" enctype="multipart/form-data">
+    <label>Item Name</label>
+    <p class="hint">What are you looking to sell?</p>
+    {{ form.title.errors }}
+    {{ form.title }}
+
+    <label>Description</label>
+    <p class="hint">Describe the item in more details.</p>
+    {{ form.description.errors }}
+    {{ form.description }}
+
+    <label>Price</label>
+    <p class="hint">How much are you selling the item for? And in what currency? Default is USD.</p>
+    {{ form.price.errors }}
+    {{ form.price }}
+
+    <label>Condition</label>
+    <p class="hint">Note: Open box counts as new.</p>
+    {{ form.condition.errors }}
+    {{ form.condition }}
+    
+    <label>Location</label>
+    <p class="hint">Let others know where the item is located.</p>
+    {{ form.location.errors }}
+    {{ form.location }}
+
+    <label>Contact Info</label>
+    <p class="hint">How should potential buyers contact you?</p>
+    {{ form.contact_info.errors }}
+    {{ form.contact_info }}
+
+    <label>Your e-mail address</label>
+    <p class="hint">Send us a message from this e-mail address in case you need to edit/delete your listing.</p>
+    {{ form.email.errors }}
+    {{ form.email }}
+
+    <label>Photos</label>
+    <p class="hint">Upload 1 to 4 photos per listing.</p>
+
+    {{ form.photo_1.errors }}
+    {{ form.photo_1 }}
+    {{ form.photo_2.errors }}
+    {{ form.photo_2 }}
+    {{ form.photo_3.errors }}
+    {{ form.photo_3 }}
+    {{ form.photo_4.errors }}
+    {{ form.photo_4 }}
+
+    <input type="submit" class="form__cta--submit" value="Post this ad">
+    <a href="{% url 'Portal:home' %}" class="form__cta--cancel">Cancel and go back home</a>
+
+    {% csrf_token %}
+  </form>
+{% endblock %}
